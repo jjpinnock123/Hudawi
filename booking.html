@@ -9,7 +9,7 @@
   <link rel="icon" type="image/x-icon" href="assets/static/favicon.ico" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="font-sans antialiased text-gray-800">
+<body class="font-sans antialiased text-gray-800 bg-white">
   <nav class="bg-white/80 backdrop-blur border-b border-slate-200 sticky top-0 z-30">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex items-center justify-between py-3">
@@ -47,117 +47,220 @@
   <section class="about-hero min-h-[35vh] flex items-center text-white">
     <div class="container mx-auto px-6">
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Booking Enquiry</h1>
-      <p class="text-xl">Please complete the form below to request a booking.</p>
+      <p class="text-xl">Complete the form below to request a booking at HUDAWI Cultural Centre.</p>
     </div>
   </section>
 
   <section class="py-20 bg-white">
     <div class="container mx-auto px-6 max-w-5xl">
-      <div class="text-center mb-10 scroll-fade">
-        <h2 class="text-3xl font-bold text-gray-800">Facilities Hire Application Form</h2>
-        <p class="text-gray-600 mt-3 max-w-3xl mx-auto">Submission of this form does not guarantee availability. Bookings are confirmed only after approval by HUDAWI Cultural Centre.</p>
-      </div>
-
-      <form action="send-booking.php" method="POST" class="bg-white rounded-3xl shadow-xl border border-slate-100 p-6 md:p-10 space-y-10 scroll-fade">
-        <input type="hidden" name="form_type" value="booking">
-
-        <section>
-          <h3 class="form-section-title">1. Applicant Details</h3>
-          <div class="grid md:grid-cols-2 gap-5">
-            <div><label class="form-label">Full Name</label><input class="form-input" type="text" name="full_name" required></div>
-            <div><label class="form-label">Organisation (if applicable)</label><input class="form-input" type="text" name="organisation"></div>
-            <div class="md:col-span-2"><label class="form-label">Address</label><input class="form-input" type="text" name="address"></div>
-            <div><label class="form-label">Postcode</label><input class="form-input" type="text" name="postcode"></div>
-            <div><label class="form-label">Email</label><input class="form-input" type="email" name="email" required></div>
-            <div><label class="form-label">Telephone</label><input class="form-input" type="text" name="telephone"></div>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="form-section-title">2. Event Information</h3>
-          <div class="grid md:grid-cols-2 gap-5">
-            <div><label class="form-label">Event Name / Description</label><input class="form-input" type="text" name="event_name" required></div>
-            <div><label class="form-label">Event Type</label><input class="form-input" type="text" name="event_type"></div>
-            <div><label class="form-label">Date of Event</label><input class="form-input" type="date" name="event_date" required></div>
-            <div class="grid grid-cols-2 gap-4">
-              <div><label class="form-label">Start Time</label><input class="form-input" type="time" name="start_time"></div>
-              <div><label class="form-label">Finish Time</label><input class="form-input" type="time" name="finish_time"></div>
-            </div>
-            <div><label class="form-label">Setup / Access Time Required</label><input class="form-input" type="text" name="setup_time"></div>
-            <div><label class="form-label">Expected Number of Attendees</label><input class="form-input" type="number" min="1" name="attendees"></div>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="form-section-title">3. Facilities Requested</h3>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div>
-              <p class="form-subtitle">Facilities</p>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label class="check-row"><input type="checkbox" name="facilities[]" value="Main Hall"> <span>Main Hall</span></label>
-                <label class="check-row"><input type="checkbox" name="facilities[]" value="Meeting Room"> <span>Meeting Room</span></label>
-                <label class="check-row"><input type="checkbox" name="facilities[]" value="Kitchen"> <span>Kitchen</span></label>
-                <label class="check-row"><input type="checkbox" name="facilities[]" value="Bar"> <span>Bar</span></label>
-                <label class="check-row"><input type="checkbox" name="facilities[]" value="Outdoor Space"> <span>Outdoor Space</span></label>
-              </div>
-            </div>
-            <div>
-              <p class="form-subtitle">Equipment Required</p>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <label class="check-row"><input type="checkbox" name="equipment[]" value="Tables"> <span>Tables</span></label>
-                <label class="check-row"><input type="checkbox" name="equipment[]" value="Chairs"> <span>Chairs</span></label>
-                <label class="check-row"><input type="checkbox" name="equipment[]" value="Projector"> <span>Projector</span></label>
-                <label class="check-row"><input type="checkbox" name="equipment[]" value="PA System"> <span>PA System</span></label>
-              </div>
-              <div class="mt-4"><label class="form-label">Other equipment</label><input class="form-input" type="text" name="equipment_other"></div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="form-section-title">4. Catering</h3>
-          <div class="grid md:grid-cols-2 gap-5">
-            <div><label class="form-label">Will food be served?</label><select class="form-input" name="food_served"><option>No</option><option>Yes</option></select></div>
-            <div><label class="form-label">Will the kitchen be used?</label><select class="form-input" name="kitchen_used"><option>No</option><option>Yes</option></select></div>
-            <div><label class="form-label">External caterer?</label><select class="form-input" name="external_caterer"><option>No</option><option>Yes</option></select></div>
-            <div><label class="form-label">If yes, caterer name</label><input class="form-input" type="text" name="caterer_name"></div>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="form-section-title">5. Event Risk Questions</h3>
-          <div class="grid md:grid-cols-2 gap-5">
-            <div><label class="form-label">Will alcohol be served?</label><select class="form-input" name="alcohol_served"><option>No</option><option>Yes</option></select></div>
-            <div><label class="form-label">Will amplified music, DJ, or PA system be used?</label><select class="form-input" name="music_or_dj"><option>No</option><option>Yes</option></select></div>
-            <div><label class="form-label">Will children or young people attend?</label><select class="form-input" name="children_attending"><option>No</option><option>Yes</option></select></div>
-            <div><label class="form-label">Will decorations, staging, or large equipment be used?</label><select class="form-input" name="large_equipment"><option>No</option><option>Yes</option></select></div>
-            <div><label class="form-label">Will attendance exceed 150 people?</label><select class="form-input" name="attendance_over_150"><option>No</option><option>Yes</option></select></div>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="form-section-title">6. Declarations</h3>
-          <div class="space-y-4">
-            <label class="check-row"><input type="checkbox" name="insurance_declaration" value="Agreed"> <span>I understand that the Centre may require evidence of Public Liability Insurance depending on the nature of the event and agree to provide this if requested.</span></label>
-            <label class="check-row"><input type="checkbox" name="electrical_declaration" value="Confirmed"> <span>I confirm that any electrical equipment brought onto the premises will be safe for use and, where applicable, have current Portable Appliance Testing (PAT).</span></label>
-          </div>
-        </section>
-
-        <section>
-          <h3 class="form-section-title">7. Declaration</h3>
-          <div class="space-y-5">
-            <label class="check-row"><input type="checkbox" name="accuracy_declaration" value="Agreed" required> <span>I confirm that the information provided is accurate and that I will comply with all HUDAWI Cultural Centre policies including Health and Safety, Safeguarding, and Food Hygiene where applicable.</span></label>
-            <div class="grid md:grid-cols-2 gap-5">
-              <div><label class="form-label">Applicant Name</label><input class="form-input" type="text" name="applicant_name"></div>
-              <div><label class="form-label">Date</label><input class="form-input" type="date" name="declaration_date"></div>
-            </div>
-          </div>
-        </section>
-
-        <div class="pt-2">
-          <button type="submit" class="inline-flex items-center justify-center rounded-full bg-amber-700 px-7 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-amber-800">Submit Booking Request</button>
+      <div class="form-card">
+        <div class="mb-8">
+          <h2 class="text-3xl font-bold text-gray-800">Facilities Hire Application</h2>
+          <p class="text-sm text-slate-500 mt-2">Submitting this form does not guarantee availability. Bookings are confirmed only after review and approval by HUDAWI Cultural Centre.</p>
         </div>
-      </form>
+
+        <form action="https://formsubmit.co/dominic@ngnf.co.uk" method="POST" class="space-y-8">
+          <input type="hidden" name="_cc" value="admin@hudawi.org.uk">
+          <input type="hidden" name="_subject" value="HUDAWI booking enquiry form submission">
+          <input type="hidden" name="_next" value="https://hudawicc.co.uk/thank-you.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off">
+
+          <section>
+            <h3 class="form-section-title">1. Applicant Details</h3>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="form-label">Full Name</label>
+                <input class="form-input" type="text" name="Full Name" required>
+              </div>
+              <div>
+                <label class="form-label">Organisation</label>
+                <input class="form-input" type="text" name="Organisation">
+              </div>
+              <div class="md:col-span-2">
+                <label class="form-label">Address</label>
+                <input class="form-input" type="text" name="Address">
+              </div>
+              <div>
+                <label class="form-label">Postcode</label>
+                <input class="form-input" type="text" name="Postcode">
+              </div>
+              <div>
+                <label class="form-label">Email</label>
+                <input class="form-input" type="email" name="Email" required>
+              </div>
+              <div>
+                <label class="form-label">Telephone</label>
+                <input class="form-input" type="text" name="Telephone">
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="form-section-title">2. Event Information</h3>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div class="md:col-span-2">
+                <label class="form-label">Event Name / Description</label>
+                <input class="form-input" type="text" name="Event Name or Description" required>
+              </div>
+              <div>
+                <label class="form-label">Event Type</label>
+                <input class="form-input" type="text" name="Event Type">
+              </div>
+              <div>
+                <label class="form-label">Date of Event</label>
+                <input class="form-input" type="date" name="Date of Event" required>
+              </div>
+              <div>
+                <label class="form-label">Start Time</label>
+                <input class="form-input" type="time" name="Start Time">
+              </div>
+              <div>
+                <label class="form-label">Finish Time</label>
+                <input class="form-input" type="time" name="Finish Time">
+              </div>
+              <div>
+                <label class="form-label">Setup / Access Time Required</label>
+                <input class="form-input" type="text" name="Setup or Access Time Required">
+              </div>
+              <div>
+                <label class="form-label">Expected Number of Attendees</label>
+                <input class="form-input" type="number" min="1" name="Expected Number of Attendees">
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="form-section-title">3. Facilities Requested</h3>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <label class="checkbox-pill"><input type="checkbox" name="Facilities Requested" value="Main Hall"> <span>Main Hall</span></label>
+              <label class="checkbox-pill"><input type="checkbox" name="Facilities Requested" value="Meeting Room"> <span>Meeting Room</span></label>
+              <label class="checkbox-pill"><input type="checkbox" name="Facilities Requested" value="Kitchen"> <span>Kitchen</span></label>
+              <label class="checkbox-pill"><input type="checkbox" name="Facilities Requested" value="Bar"> <span>Bar</span></label>
+              <label class="checkbox-pill"><input type="checkbox" name="Facilities Requested" value="Outdoor Space"> <span>Outdoor Space</span></label>
+            </div>
+
+            <div class="mt-6">
+              <label class="form-label">Other facility request details</label>
+              <input class="form-input" type="text" name="Other Facility Request Details">
+            </div>
+
+            <div class="mt-6">
+              <p class="form-label mb-3">Equipment Required</p>
+              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                <label class="checkbox-pill"><input type="checkbox" name="Equipment Required" value="Tables"> <span>Tables</span></label>
+                <label class="checkbox-pill"><input type="checkbox" name="Equipment Required" value="Chairs"> <span>Chairs</span></label>
+                <label class="checkbox-pill"><input type="checkbox" name="Equipment Required" value="Projector"> <span>Projector</span></label>
+                <label class="checkbox-pill"><input type="checkbox" name="Equipment Required" value="PA System"> <span>PA System</span></label>
+                <label class="checkbox-pill"><input type="checkbox" name="Equipment Required" value="Other"> <span>Other</span></label>
+              </div>
+              <div class="mt-4">
+                <label class="form-label">Other equipment details</label>
+                <input class="form-input" type="text" name="Other Equipment Details">
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="form-section-title">4. Catering</h3>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="form-label">Will food be served?</label>
+                <select class="form-input" name="Will food be served?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Will the kitchen be used?</label>
+                <select class="form-input" name="Will the kitchen be used?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">External caterer?</label>
+                <select class="form-input" name="External caterer?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">If yes, caterer name</label>
+                <input class="form-input" type="text" name="External Caterer Name">
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="form-section-title">5. Event Risk Questions</h3>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="form-label">Will alcohol be served?</label>
+                <select class="form-input" name="Will alcohol be served?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Will amplified music, DJ, or PA system be used?</label>
+                <select class="form-input" name="Will amplified music, DJ, or PA system be used?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Will children or young people attend?</label>
+                <select class="form-input" name="Will children or young people attend?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Will decorations, staging, or large equipment be used?</label>
+                <select class="form-input" name="Will decorations, staging, or large equipment be used?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Will attendance exceed 150 people?</label>
+                <select class="form-input" name="Will attendance exceed 150 people?">
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="form-section-title">6. Declarations</h3>
+            <div class="space-y-3">
+              <label class="checkbox-card"><input type="checkbox" name="Insurance declaration accepted" value="Yes" required> <span>I understand that the Centre may require evidence of Public Liability Insurance depending on the nature of the event and agree to provide this if requested.</span></label>
+              <label class="checkbox-card"><input type="checkbox" name="Electrical equipment declaration accepted" value="Yes" required> <span>I confirm that any electrical equipment brought onto the premises will be safe for use and, where applicable, have current Portable Appliance Testing (PAT).</span></label>
+              <label class="checkbox-card"><input type="checkbox" name="General declaration accepted" value="Yes" required> <span>I confirm that the information provided is accurate and that I will comply with all HUDAWI Cultural Centre policies including Health and Safety, Safeguarding, and Food Hygiene where applicable.</span></label>
+            </div>
+          </section>
+
+          <section>
+            <h3 class="form-section-title">7. Applicant Sign-off</h3>
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="form-label">Applicant Name</label>
+                <input class="form-input" type="text" name="Applicant Name" required>
+              </div>
+              <div>
+                <label class="form-label">Date</label>
+                <input class="form-input" type="date" name="Application Date" required>
+              </div>
+            </div>
+          </section>
+
+          <div class="pt-2">
+            <button type="submit" class="form-button">Submit booking enquiry</button>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
