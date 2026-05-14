@@ -8,7 +8,8 @@
   <link rel="icon" type="image/x-icon" href="assets/static/favicon.ico" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="font-sans antialiased text-gray-800 bg-slate-50 min-h-screen flex items-center justify-center p-6">
+<body class="font-sans antialiased text-gray-800 bg-slate-50 min-h-screen flex flex-col">
+  <main class="flex-1 flex items-center justify-center p-6">
   <div class="max-w-xl w-full bg-white rounded-3xl shadow-xl p-10 text-center">
     <div class="inline-flex h-16 w-16 items-center justify-center rounded-full bg-amber-100 text-amber-700 text-2xl font-bold">✓</div>
     <h1 class="text-3xl font-bold text-slate-900 mt-6">Thank you</h1>
@@ -18,5 +19,17 @@
       <a href="booking.html" class="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-3 font-semibold text-slate-700 hover:bg-slate-50 transition">Back to booking form</a>
     </div>
   </div>
+  </main>
+  <footer class="w-full bg-slate-900 text-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+      <p class="text-xs text-slate-400">&copy; <span id="year"></span> HUDAWI Cultural Centre. All rights reserved.</p>
+      <div class="text-xs text-slate-400 flex flex-wrap items-center justify-center md:justify-end gap-x-3 gap-y-1">
+        <a href="documents/privacy-policy.docx" class="hover:text-amber-300">Privacy Policy</a>
+        <span class="text-slate-600">|</span>
+        <a href="documents/terms-and-conditions-full.docx" class="hover:text-amber-300">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
